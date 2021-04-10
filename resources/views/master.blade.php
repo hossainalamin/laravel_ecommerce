@@ -23,9 +23,6 @@
     </script>
   </body>
 <style>
-.login{
-  margin-top: 50px;
-}
 .login-form{
   height:500px;
 }
