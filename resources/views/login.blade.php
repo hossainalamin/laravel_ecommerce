@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-<div class="continer login-form">
+<div class="container login-form">
     <div class="row">
         <div class="col-md-4">
         </div>

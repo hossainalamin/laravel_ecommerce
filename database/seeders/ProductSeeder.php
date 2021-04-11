@@ -15,21 +15,34 @@ class ProductSeeder extends Seeder
     public function run()
     {
         DB::table('products')->insert([
-            ["name"        => "nokia mobile",
-            "price"       => "12000",
-            "category"    => "mobile",
-            "description" => "A smartphone with various features and nice looking",
-            "gellary"     => "../../image/mobile.jpg"],
-            ["name"        => "xiaomi mobile",
-            "price"       => "11000",
-            "category"    => "mobile",
-            "description" => "A smartphone with various features and nice looking",
-            "gellary"     => "../../image/mobile.jpg"],
-            ["name"        => "Samsung mobile",
-            "price"       => "15000",
-            "category"    => "mobile",
-            "description" => "A smartphone with various features and nice looking",
-            "gellary"     => "../../image/mobile.jpg"]
+            [
+                'name'=>'Oppo mobile',
+                "price"=>"300",
+                "category"=>"mobile",
+                "description"=>"A smartphone with 8gb ram and much more feature",
+                "gallery"=>"https://assetscdn1.paytm.com/images/catalog/product/M/MO/MOBOPPO-A52-6-GFUTU6297453D3D253C/1592019058170_0..png"
+            ],
+            [
+                'name'=>'Panasonic Tv',
+                "price"=>"400",
+                "category"=>"tv",
+                "description"=>"A smart tv with much more feature",
+                "gallery"=>"https://i.gadgets360cdn.com/products/televisions/large/1548154685_832_panasonic_32-inch-lcd-full-hd-tv-th-l32u20.jpg"
+            ],
+            [
+                'name'=>'Soni Tv',
+                "price"=>"500",
+                "category"=>"tv",
+                "description"=>"A tv with much more feature",
+                "gallery"=>"https://4.imimg.com/data4/PM/KH/MY-34794816/lcd-500x500.png"
+            ],
+            [
+                'name'=>'LG fridge',
+                "price"=>"200",
+                "category"=>"fridge",
+                "description"=>"A fridge with much more feature",
+                "gallery"=>"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTFx-2-wTOcfr5at01ojZWduXEm5cZ-sRYPJA&usqp=CAU"
+             ]
         ]);
         
     }
