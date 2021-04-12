@@ -11,15 +11,17 @@
             <div class="carousel-inner">
                 <div class="carousel-inner">
                     @foreach ($products as $item)
-                    <div class="carousel-item {{$item['id']==1?'active':''}}">
-                        <a href="detail/{{$item['id']}}">
-                            <img class="slider d-block w-100" src="{{$item['gallery']}}">
-                            <div class="carousel-caption slider-text">
-                                <h3>{{$item['name']}}</h3>
-                                <p>{{$item['description']}}</p>
-                            </div>
-                        </a>
-                    </div>
+                    <a href="detail/{{$item['id']}}">
+                        <div class="carousel-item {{$item['id']==1?'active':''}}">
+                            <a href="detail/{{$item['id']}}">
+                                <img class="slider d-block w-100" src="{{$item['gallery']}}">
+                                <div class="carousel-caption slider-text">
+                                    <h3>{{$item['name']}}</h3>
+                                    <p>{{$item['description']}}</p>
+                                </div>
+                            </a>
+                        </div>
+                    </a>
                     @endforeach
                 </div>
             </div>
@@ -38,13 +40,15 @@
                 <div class="col">
                     <h3 class="text-center font-italic my-2 bg-dark py-3 text-light">Trending products</h3>
                     @foreach($products as $item)
-                    <div class="trending-item">
-                        <img class="trending-image" src="{{$item['gallery']}}" alt="">
-                        <p>{{$item['name']}}</p>
-                    </div>
+                    <a href="detail/{{$item['id']}}">
+                        <div class="trending-item">
+                            <img class="trending-image" src="{{$item['gallery']}}" alt="">
+                            <p class="ml-4 mt-3">{{$item['name']}}</p>
+                        </div>
+                    </a>
                     @endforeach
                 </div>
             </div>
         </div>
     </div>
-@endsection
+    @endsection

@@ -14,9 +14,9 @@
                     <a class="nav-link" href="#">Orders</a>
                 </li>
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+            <form class="d-flex" action="/search">
+                <input class="form-control me-2 search-box ml-5 pl-5" type="search" placeholder="Search"name="search" aria-label="Search" >
+                <button class="btn btn-danger ml-3" type="submit">Search</button>
             </form>
             <ul class="ml-auto navbar-nav">
             <li class="nav-item"><a href="" class="nav-link">Cart(0)</a></li>

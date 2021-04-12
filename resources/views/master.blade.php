@@ -49,6 +49,15 @@
 .trending-image{
   height: 100px;
 }
+.detail-img{
+    height : 200px;
+}
+.detail-col{
+    margin-right : 2px solid #000;
+}
+.search-box{
+    width : 500px;
+}
 </style>
 
 </html>
