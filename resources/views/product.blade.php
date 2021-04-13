@@ -39,6 +39,9 @@
             <div class="row">
                 <div class="col">
                     <h3 class="text-center font-italic my-2 bg-dark py-3 text-light">Trending products</h3>
+                    @if(session("message"))
+                    <span class="bg-success text-center">{{session("message")}}</span>
+                    @endif
                     @foreach($products as $item)
                     <a href="detail/{{$item['id']}}">
                         <div class="trending-item">

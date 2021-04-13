@@ -58,6 +58,9 @@
 .search-box{
     width : 500px;
 }
+.nav-item{
+    text-transform: uppercase;
+}
 </style>
 
 </html>
