@@ -1,3 +1,7 @@
+<?php
+use App\Http\Controllers\ProductController;
+$total  = ProductController::cartItem();
+?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Shopping BD</a>
@@ -19,7 +23,7 @@
                 <button class="btn btn-danger ml-3" type="submit">Search</button>
             </form>
             <ul class="ml-auto navbar-nav">
-            <li class="nav-item"><a href="" class="nav-link">Cart(0)</a></li>
+            <li class="nav-item"><a href="" class="nav-link">Cart({{$total}})</a></li>
             </ul>
         </div>
     </div>

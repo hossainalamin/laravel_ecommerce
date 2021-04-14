@@ -18,15 +18,20 @@
             <h4>Detail : {{$product['description']}}</h4>
             <br>
             <br>
-            <form action="/addcart" method = "post">
-            @csrf
-            <input type="hidden" name="prod_id" value = {{$product['id']}}>
-            <button class="btn btn-outline-danger mb-3">Add Card</button>
+            <form action="/addcart" method="post">
+                @csrf
+                <input type="hidden" name="prod_id" value={{$product['id']}}>
+                <button class="btn btn-outline-danger mb-3">Add Card</button>
             </form>
             <button class="btn btn-outline-primary">Buy Now</button>
             <br>
             <br>
             <a href="/" class="my-3">Go Back</a>
+            @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+            @endif
         </div>
     </div>
 </div>
