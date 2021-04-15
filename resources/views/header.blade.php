@@ -27,7 +27,9 @@ $total  = ProductController::cartItem();
                 <button class="btn btn-danger ml-3" type="submit">Search</button>
             </form>
             <ul class="ml-auto navbar-nav">
-                <li class="nav-item"><a href="" class="nav-link">Cart({{$total}})</a></li>
+                @if(Session::has('user'))
+                <li class="nav-item"><a href="/cartlist" class="nav-link">Cart({{$total}})</a><li>
+                @endif
                 @if(Session::has('user'))
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"

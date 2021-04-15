@@ -61,6 +61,13 @@
 .nav-item{
     text-transform: uppercase;
 }
+.login-form{
+    margin-top : 90px;
+}
+.cart-item{
+    font-size : 16px;
+    text-decoration : none;
+}
 </style>
 
 </html>
