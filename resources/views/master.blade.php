@@ -68,6 +68,9 @@
     font-size : 16px;
     text-decoration : none;
 }
+.cart-product,.detail,.order-product{
+    min-height : 500px;
+}
 </style>
 
 </html>

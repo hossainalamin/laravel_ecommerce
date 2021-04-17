@@ -28,14 +28,11 @@ class ProductController extends Controller
             $cart  = new Cart();
             $cart ->user_id = $req->session()->get('user')['id'];
             $cart->prod_id  = $req->prod_id;
-            $check = Cart::where('user_id',$cart->user_id)
+            Cart::where('user_id',$cart->user_id)
             ->where('prod_id',$cart->prod_id)->get();
-            if($check){
-                return redirect()->back()->with('status', 'Profile updated!');
-            }else{
             $cart->save();
-                return redirect('/')->with('message','Add to cart successfully');
-            }
+            return redirect('/')->with('message','Add to cart successfully');
+            
         }else{
             return redirect("login");
         }
@@ -49,8 +46,21 @@ class ProductController extends Controller
         $products = DB::table('carts')
         ->join('products','carts.prod_id','products.id')
         ->where('user_id',$user_id)
-        ->select('products.*')
+        ->select('products.*','carts.id as cart_id')
         ->get();
         return view('cartlist',["products"=>$products]);
+    }
+    public function removeCart($id){
+        Cart::destroy($id);
+        return redirect('cartlist');
+    }
+    public function orderCart(){
+        $user_id = Session::get('user')['id'];
+        $price = DB::table('carts')
+        ->join('products','carts.prod_id','products.id')
+        ->where('user_id',$user_id)
+        ->select('products.*','carts.id as cart_id')
+        ->sum('products.price');
+        return view('ordernow',["total"=>$price]); 
     }
 }
