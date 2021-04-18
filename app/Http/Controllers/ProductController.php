@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\Order;
 use Illuminate\Support\Facades\DB;
 use Session;
 
@@ -62,5 +63,37 @@ class ProductController extends Controller
         ->select('products.*','carts.id as cart_id')
         ->sum('products.price');
         return view('ordernow',["total"=>$price]); 
+    }
+    public function placeOrder(Request $req){
+        $user_id   = Session::get('user')['id'];
+        $cart_prod = Cart::where('user_id',$user_id)->get();
+        foreach($cart_prod as $order_item){
+            $order = new Order();
+            $order->product_id = $order_item['prod_id']; 
+            $order->user_id    = $order_item['user_id']; 
+            $order->status     = 'pending'; 
+            $order->payment_method = $req->payment; 
+            $order->payment_status = "pending";
+            $order->address = $req->address;
+            if(empty($order->payment_method) or empty($order->address)){
+                return redirect('ordernow')."<script>
+                alert('Any of the feild should not be empty!');
+                window.location('ordernow');
+                </script>";
+            }else{
+            $order->save();
+            Cart::where('user_id',$user_id)->delete();
+            }
+        }
+        return redirect('/');
+    }
+    public function myOrders(){
+        $user_id = Session::get('user')['id'];
+        $order_list = DB::table('orders')
+        ->join('products','orders.product_id','products.id')
+        ->where('user_id',$user_id)
+        ->select('products.*','orders.*')
+        ->get();
+        return view('myorders',["orders"=>$order_list]);
     }
 }

@@ -17,4 +17,19 @@ class UserController extends Controller
             return redirect('/');
         }
     }
+    public function register(Request $req){
+        $validate = $req->validate([
+            "name" => "min : 6|unique:users|required",
+            "email"    => "required",
+            "password" => "min:5"   
+        ]);
+        if($validate){
+        $user = new User();
+        $user->name = $req->name;
+        $user->email = $req->email;
+        $user->password = HASH::make($req->password);
+        $user->save();
+        return redirect('/login');
+        }
+    }
 }

@@ -24,18 +24,20 @@
         <br>
         <br>
         <div class="form">
-            <form action="" method="">
+            <form action="/placeorder" method="post">
+            @csrf
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Address</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                    <label for="address">Address</label>
+                    <textarea class="form-control" name="address" rows="2"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlSelect1">Payment Option</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                        <option>Online</option>
-                        <option>Cash On delevery</option>
+                    <label for="payment_option">Payment Option</label>
+                    <select class="form-control" name="payment">
+                        <option name="online">Online</option>
+                        <option name="ofline">Cash On delevery</option>
                     </select>
                 </div>
+                <button class="btn btn-success" type="submit">Order</button>
             </form>
         </div>
     </div>

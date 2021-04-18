@@ -18,7 +18,7 @@ $total  = ProductController::cartItem();
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Orders</a>
+                    <a class="nav-link" href="/myorders">Orders</a>
                 </li>
             </ul>
             <form class="d-flex" action="/search">
@@ -42,6 +42,7 @@ $total  = ProductController::cartItem();
                 </li>
                 @else
                 <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
+                <li class="nav-item"><a href="/register" class="nav-link">Register</a></li>
                 @endif
 
             </ul>
